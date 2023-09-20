@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header {
+    background-color: rgb(238, 216, 95);
+    margin-top: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+}
+
+
+.button {
+    background-color: rgb(238, 216, 95);
+    color: black;
+    border: solid rgb(238, 216, 95);
+    font-weight: bold;
+    cursor: pointer;
+}
