@@ -1,15 +1,18 @@
 import React, { useState } from "react"
 import InputMask from "react-input-mask"
+import minhaImagem from "./images/normal.jpg"
+import minhaImagem1 from "./images/acimadopeso.jpg"
+import minhaImagem2 from "./images/magreza.jpg"
+import minhaImagem3 from "./images/obesidade1.jpg"
+import minhaImagem4 from "./images/obesidade2.jpg"
+
 
 
 function App() {
   const [form, setForm] = useState("")
 
   function handleChange(event) {
-    console.log('event 1', event.target.name)
-    console.log('event 2', event.target.value)
     setForm({ ...form, [event.target.name]: event.target.value })
-    console.log("form", form)
   }
 
   function handleSubmit(event) { 
@@ -18,7 +21,14 @@ function App() {
       alert("Os valores não podem estar em branco. Digite novamente")
     } else {
       const imc = form.peso / (form.altura * form.altura )
-      alert('O seu IMC é ' + imc)
+      switch(imc) {
+        case 24.6:
+          <>
+          <span>Seu indice é: {imc} </span>
+          <img className="imagem" src={minhaImagem} alt="imagem de peso normal"></img>
+          </>
+          break;
+      }
     }
   }
 

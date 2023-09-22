@@ -35,3 +35,9 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+.imagem {
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+}
