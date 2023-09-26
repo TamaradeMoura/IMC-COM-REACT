@@ -1,10 +1,6 @@
 import React, { useState } from "react"
 import InputMask from "react-input-mask"
-import minhaImagem from "./images/normal.jpg"
-import minhaImagem1 from "./images/acimadopeso.jpg"
-import minhaImagem2 from "./images/magreza.jpg"
-import minhaImagem3 from "./images/obesidade1.jpg"
-import minhaImagem4 from "./images/obesidade2.jpg"
+
 
 
 
@@ -21,13 +17,29 @@ function App() {
       alert("Os valores não podem estar em branco. Digite novamente")
     } else {
       const imc = form.peso / (form.altura * form.altura )
-      switch(imc) {
-        case 24.6:
-          <>
-          <span>Seu indice é: {imc} </span>
-          <img className="imagem" src={minhaImagem} alt="imagem de peso normal"></img>
-          </>
-          break;
+      alert("Seu escore é " + imc);
+      if (imc <= 18.5) {
+        alert("é considerado magreza");
+      } else {
+        if ((imc >= 18.6) && (imc <= 24.9)) {
+          alert("é considerado ideal (parabéns)");
+        } else {
+          if ((imc >= 25.0) && (imc <= 29.9)) {
+            alert("é considerado levemente acima do peso (cuidado)");
+          } else {
+            if ((imc >= 30.0) && (imc <= 34.9)) {
+              alert("é considerado obesidade grau I");
+            } else {
+              if ((imc >= 35.0) && (imc <= 39.9)) {
+                alert("OBESIDADE GRAU II (SEVERA)");
+              } else {
+                if (imc >= 40) {
+                  alert("OBESIDADE GRAU III (MÓRBIDA)");
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
