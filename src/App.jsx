@@ -13,35 +13,34 @@ function App() {
     if ((!form.peso && !form.altura) || !form.peso || !form.altura ) {
       alert("Os valores não podem estar em branco. Digite novamente")
     } else {
-      const imc = form.peso / (form.altura * form.altura);
-      switch (true) {
-        case imc <= 18.5:
-          image = "./images/magreza.jpg";
-          imageAlt = "imagem de peso normal";
-          break;
-        case imc <= 24.9:
-          image = "./images/normal.jpg";
-          imageAlt = "imagem de peso normal";
-          break;
-        case imc <= 29.9:
-          image = "./images/acimadopeso.jpg";
-          imageAlt = "imagem acima do peso";
-          break;
-        case imc <= 34.9:
-          image = "./images/obesidade1.jpg";
-          imageAlt = "imagem de obesidade grau 1";
-          break;
-        case imc <= 39.9:
-          image = "./images/obesidade2.jpg";
-          imageAlt = "imagem obesidade grau 2";
-          break;
+      const imc = form.peso / (form.altura * form.altura).toFixed(1);
+      if (imc <=18.5) {
+        alert("seu escore é: " + imc + " considerado magreza");
+      } else {
+      if ((imc >= 18.6) && (imc <= 24.9)) {
+        alert("seu escore é: " + imc + " considerado ideal (parabéns)");
+        } else {
+          if ((imc >= 18.6) && (imc <= 24.9)) {
+            alert("seu escore é: " + imc + " considerado acima do peso (cuidado)");
+          } else {
+            if ((imc >= 25.0) && (imc <= 29.9)) {
+              alert("seu escore é: " + imc + " considerado sobrepeso");
+            } else {
+              if ((imc >= 30.0) && (imc <= 34.9)) {
+                alert("seu escore é: " + imc + " considerado obesidade grau I");
+              } else {
+                if ((imc >= 35.0) && (imc <= 39.9)) {
+                  alert("seu escore é: " + imc + " considerado obesidade grau II");
+                } else {
+                  if (imc >= 40) {
+                    alert("seu escore é: " + imc + " considerado obesidade grau III (morbida)");
+                  }
+                }
+              }
+            }
+          }
+        }
       }
-      return (
-        <>
-          <span>Seu indice é: {imc} </span>
-          <img className="imagem" src={image} alt={imagemAlt}></img>
-        </>
-      );
     }
   }
 
